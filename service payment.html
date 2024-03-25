@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Confirmation Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="file"], select, input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 20px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+<form action="process_payment.php" method="post" enctype="multipart/form-data">
+    <h2>Confirm Payment</h2>
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="\+250[0-9]{8,9}" title="Phone number must start with +250 and have 9 or 10 digits" required>
+
+    <label for="car_type">Car Type:</label>
+    <select id="car_type" name="car_type" required>
+        <option value="" disabled selected>Select car type</option>
+        <option value="Sedan">Sedan</option>
+        <option value="SUV">SUV</option>
+        <option value="Truck">Truck</option>
+    </select>
+
+    <label for="payment_confirmation">Payment Confirmation Message:</label>
+    <input type="file" id="payment_confirmation" name="payment_confirmation" accept=".txt, .pdf, .doc, .docx" required>
+
+    <label for="payment_method">Payment Method:</label>
+    <select id="payment_method" name="payment_method" required>
+        <option value="" disabled selected>Select payment method</option>
+        <option value="MTN Mobile Money">MTN Mobile Money</option>
+        <option value="PayPal">PayPal</option>
+        <option value="VisaCard">VisaCard</option>
+    </select>
+
+    <label for="date_time">Date and Time:</label>
+    <input type="datetime-local" id="date_time" name="date_time" required>
+
+    <input type="submit" value="Confirm Payment">
+</form>
+
+</body>
+</html>
